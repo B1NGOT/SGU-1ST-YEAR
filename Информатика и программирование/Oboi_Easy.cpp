@@ -44,11 +44,23 @@ int main()
 }   
 int check_values(string text){
     int temp;
+    int flag=0;
     cout << text;
-    cin >> temp;
-    while (temp<=0){
-        cout << "Ошибка. Введите положительное значение" << endl << text ;
-        cin >> temp;
-        }
+    
+    while (flag==0)
+    {   
+        cin>> temp;
+        if((cin.fail() || char(cin.peek()) != '\n')){
+            cout << "Error. This variable is not number!"<< endl << text;
+            cin.clear();
+            cin.ignore(32767, '\n');}
+        else{
+            if (temp<=0){
+                cout << "Error. Enter positive value!" << endl << text ;
+            }else{
+                flag=1;} 
+            }
+    }
+    
     return temp;
     }
