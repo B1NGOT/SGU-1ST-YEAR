@@ -8,21 +8,20 @@ int main()
 {
     int a,b,h,rul=0,p,arul,brul,cnt=0,i=0,l=0;
     float j=0;
-    setlocale(LC_ALL,"Russian");
-    cout << "Калькулятор обоев." << endl;
-    a = check_values("Введите длину помещения(см): ");
+    cout << "Wallpaper calculator." << endl;
+    a = check_values("Enter the length of the room(cm): ");
     
-    b = check_values("Введите ширину помещения(см): ");
+    b = check_values("Enter the width of the room(cm): ");
     
-    h= check_values("Введите высоту помещения(см): ");
+    h= check_values("Enter the height of the room(cm): ");
     
-    arul = check_values("Введите длину рулона(см): ");
+    arul = check_values("Enter the length of the wallpaper roll(cm): ");
     while(arul<h)
     {
-        cout << "Ошибка. Длина рулона обоев не может быть отрицательной или меньше высоты помещения." << endl;
-        arul = check_values("Введите длину рулона(см): ");
+        cout << "Error. The length of the wallpaper roll cannot be negative or less than the height of the room." << endl;
+        arul = check_values("Enter the length of the wallpaper roll(cm): ");
     }
-    brul=check_values("Введите ширину рулона: ");;
+    brul=check_values("Enter the width of the wallpaper roll(cm): ");;
     
     p=a+a+b+b;
     while(p>brul)
@@ -51,7 +50,7 @@ int check_values(string text){
     {   
         cin>> temp;
         if((cin.fail() || char(cin.peek()) != '\n')){
-            cout << "Error. This variable is not number!"<< endl << text;
+            cout << "Error. Invalid input! "<< endl << text;
             cin.clear();
             cin.ignore(32767, '\n');}
         else{
@@ -61,6 +60,5 @@ int check_values(string text){
                 flag=1;} 
             }
     }
-    
     return temp;
     }
